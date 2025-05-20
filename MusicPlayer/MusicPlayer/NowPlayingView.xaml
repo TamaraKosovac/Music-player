@@ -1,0 +1,123 @@
+﻿<UserControl x:Class="MusicPlayer.NowPlayingView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes">
+    <Grid Background="#E0E5EC">
+
+        <StackPanel Orientation="Horizontal"
+                    HorizontalAlignment="Right"
+                    VerticalAlignment="Bottom"
+                    Margin="{DynamicResource PageMargin}"
+                    Width="{DynamicResource StackPanelWidth}">
+            <materialDesign:PackIcon Kind="VolumeHigh"
+                                     Width="{DynamicResource MiniPackIconSize}" Height="{DynamicResource MiniPackIconSize}"
+                                     VerticalAlignment="Center"
+                                     Margin="0,0,5,0"
+                                     Foreground="Gray"/>
+            <Slider x:Name="VolumeSlider"
+                    Minimum="0"
+                    Maximum="1"
+                    Value="0.5"
+                    TickFrequency="0.1"
+                    Width="{DynamicResource VolumeSliderWidth}"
+                    ValueChanged="VolumeSlider_ValueChanged"/>
+        </StackPanel>
+
+        <Button Width="{DynamicResource ControlButtonSize}" Height="{DynamicResource ControlButtonSize}"
+                Style="{StaticResource MaterialDesignFloatingActionMiniButton}"
+                HorizontalAlignment="Left"
+                VerticalAlignment="Top"
+                Margin="{DynamicResource TopButtonMargin}"
+                Click="GoBack_Click">
+            <materialDesign:PackIcon Kind="ArrowLeft" Width="{DynamicResource MiniPackIconSize}" Height="{DynamicResource MiniPackIconSize}"/>
+        </Button>
+
+        <Button Width="{DynamicResource ControlButtonSize}" Height="{DynamicResource ControlButtonSize}" 
+                HorizontalAlignment="Right"
+                VerticalAlignment="Top"
+                Margin="{DynamicResource TopButtonMargin}"
+                Style="{StaticResource MaterialDesignFloatingActionMiniButton}"
+                Click="RepeatButton_Click">
+            <materialDesign:PackIcon x:Name="RepeatIcon" Kind="Repeat" Width="{DynamicResource RepeatPackIconSize}" Height="{DynamicResource RepeatPackIconSize}"/>
+        </Button>
+
+        <StackPanel Margin="{DynamicResource PageMargin}" HorizontalAlignment="Center" VerticalAlignment="Center">
+
+            <Image x:Name="AlbumArt"
+                   Width="{DynamicResource AlbumArtSize}" Height="{DynamicResource AlbumArtSize}"
+                   Stretch="UniformToFill"
+                   ClipToBounds="True"
+                   Margin="0,0,0,20"/>
+
+            <TextBlock x:Name="TitleText"
+                       FontSize="{DynamicResource TextTitleFontSize}"
+                       FontWeight="Bold"
+                       TextAlignment="Center"/>
+
+            <TextBlock x:Name="ArtistText"
+                       FontSize="{DynamicResource TextArtistFontSize}"
+                       Foreground="Gray"
+                       TextAlignment="Center"
+                       Margin="0,0,0,20"/>
+
+            <Slider x:Name="ProgressSlider"
+                    Width="{DynamicResource ProgressSliderWidth}"
+                    Margin="0,0,0,5"
+                    Minimum="0"
+                    ValueChanged="ProgressSlider_ValueChanged"
+                    Foreground="Gray"/>
+
+            <Grid Width="{DynamicResource ProgressSliderWidth}" Margin="0,0,0,20">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto"/>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="Auto"/>
+                </Grid.ColumnDefinitions>
+
+                <TextBlock x:Name="CurrentTimeText"
+                       Text="0:00"
+                       Grid.Column="0"
+                       HorizontalAlignment="Left"
+                       Foreground="Gray"/>
+
+                <TextBlock x:Name="TotalTimeText"
+                       Text="0:00"
+                       Grid.Column="2"
+                       HorizontalAlignment="Right"
+                       Foreground="Gray"/>
+            </Grid>
+
+
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+                <Button Margin="30,0"
+                        Style="{StaticResource MaterialDesignFloatingActionMiniButton}"
+                        Click="PreviousButton_Click"
+                        Background="Transparent"
+                        BorderBrush="Transparent">
+                    <materialDesign:PackIcon Kind="SkipPrevious" Width="{DynamicResource PackIconSize}" Height="{DynamicResource PackIconSize}" Foreground="Gray"/>
+                </Button>
+
+                <Button x:Name="PlayPauseButton" Width="{DynamicResource PlayPauseButtonSize}" Height="{DynamicResource PlayPauseButtonSize}" Margin="10,0"
+                        Style="{StaticResource MaterialDesignFloatingActionButton}"
+                        Click="PlayPause_Click">
+                    <materialDesign:PackIcon x:Name="PlayPauseIcon" Kind="Pause" Width="{DynamicResource PackIconSize}" Height="{DynamicResource PackIconSize}"/>
+                </Button>
+
+                <Button Margin="30,0"
+                        Style="{StaticResource MaterialDesignFloatingActionMiniButton}"
+                        Click="NextButton_Click"
+                        Background="Transparent"
+                        BorderBrush="Transparent">
+                    <materialDesign:PackIcon Kind="SkipNext" Width="{DynamicResource PackIconSize}" Height="{DynamicResource PackIconSize}" Foreground="Gray"/>
+                </Button>
+            </StackPanel>
+
+            <MediaElement x:Name="Player"
+                          LoadedBehavior="Manual"
+                          UnloadedBehavior="Stop"
+                          Visibility="Collapsed"
+                          HorizontalAlignment="Left"
+                          VerticalAlignment="Bottom"/>
+        </StackPanel>
+    </Grid>
+</UserControl>

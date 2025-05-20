@@ -1,0 +1,23 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:sys="clr-namespace:System;assembly=mscorlib"
+                    xmlns:local="clr-namespace:MusicPlayer" xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes">
+    
+    <sys:Double x:Key="AlbumArtSize">300</sys:Double>
+    <sys:Double x:Key="TextTitleFontSize">25</sys:Double>
+    <sys:Double x:Key="TitleFontSize">24</sys:Double>
+    <sys:Double x:Key="TextArtistFontSize">18</sys:Double>
+    <sys:Double x:Key="ProgressSliderWidth">300</sys:Double>
+    <sys:Double x:Key="VolumeSliderWidth">100</sys:Double>
+    <sys:Double x:Key="ControlButtonSize">40</sys:Double>
+    <sys:Double x:Key="PlayPauseButtonSize">60</sys:Double>
+    <sys:Double x:Key="PackIconSize">30</sys:Double>
+    <sys:Double x:Key="MiniPackIconSize">20</sys:Double>
+    <sys:Double x:Key="ControlButtonMargin">30</sys:Double>
+    <sys:Double x:Key="RepeatPackIconSize">24</sys:Double>
+    <sys:Double x:Key="StackPanelWidth">150</sys:Double>
+    <Thickness x:Key="Margin">10</Thickness>
+    <Thickness x:Key="PageMargin">20</Thickness>
+    <Thickness x:Key="TopButtonMargin">40</Thickness>
+
+</ResourceDictionary>
